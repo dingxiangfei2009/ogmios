@@ -132,7 +132,8 @@ describe('Local state queries', () => {
     let context: InteractionContext
 
     beforeAll(async () => {
-      context = await dummyInteractionContext()
+      const _256MB = 128 * 1024 * 1024
+      context = await dummyInteractionContext('LongRunning', { maxPayload: _256MB })
     })
 
     afterAll(async () => {
